@@ -1,0 +1,32 @@
+# Note these patterns should likely be general match patterns and not try
+# to completely validate the target strings. It's a tradeoff of RE complexity.
+# You'd hope the source network device would of already done its own validation
+# of things like IP addresses :-)
+
+# The code assumes the pattern specifies a single RE match group (the first),
+# hence the parentheses around the target pattern. It lets you be more specific
+# with what might precede or trail the target pattern, but it will only replace
+# the string that matches that group
+
+# If the replacement text contains '{}', it will be replaced with the id of the
+# unique string that matched the pattern
+
+# IPv4 address examples. Only use one of these
+"(((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9]))" "## IPv4 ADDRESS {} ##"
+# "(((\d{1,3})\.){3}(\d{1,3}))" "## IPv4 ADDRESS {} ##"
+# "ip address (((\d{1,3})\.){3}(\d{1,3}))" "## IPv4 ADDRESS {} ##"
+
+# IPv6 address - simple for now
+"ipv6 address ([0-9A-Z:]*)" "## IPv6 ADDRESS {} ##"
+
+# Descriptions
+"description (.*)" "## Description Removed ##"
+
+# Passwords
+"password (\w*)" "## Password Removed ##"
+
+# Cryptographic key strings
+"key-string (\w*)" "## Key-string {} Removed ##"
+
+# Certificate contents
+"^\s*(([0-9A-F]{8} ){0,7}[0-9A-F]+$)" "## Certificate Removed ##"
