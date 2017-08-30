@@ -23,7 +23,7 @@
 "description (.*)" "## Description Removed ##"
 
 # Passwords
-"password (\w*)" "## Password Removed ##"
+"password (.*)" "## Password Removed ##"
 
 # Cryptographic key strings
 "key-string (\w*)" "## Key-string {} Removed ##"
