@@ -49,7 +49,12 @@ def readConfig(args):
     if args.verbose:
         sys.stderr.write("Using config file '{}'\n".format(args.config))
 
-    configFile = open(args.config, 'r')
+    try:
+        configFile = open(args.config, 'r')
+    except IOError:
+        sys.stderr.write("(readConfig) ERROR: unable to open config file '{}'\n".format(args.config))
+        return []
+
     lineNumber = 0
     patternList = []
 
