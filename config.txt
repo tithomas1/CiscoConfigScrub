@@ -12,9 +12,9 @@
 # unique string that matched the pattern
 
 # IPv4 address examples. Only use one of these
-"(((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9]))" "## IPv4 ADDRESS {} ##"
-# "(((\d{1,3})\.){3}(\d{1,3}))" "## IPv4 ADDRESS {} ##"
-# "ip address (((\d{1,3})\.){3}(\d{1,3}))" "## IPv4 ADDRESS {} ##"
+"(((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])(/\d{1,2})?)" "## IPv4 ADDRESS {} ##"
+# "(((\d{1,3})\.){3}(\d{1,3})(/\d{1,2})?)" "## IPv4 ADDRESS {} ##"
+# "ip address (((\d{1,3})\.){3}(\d{1,3})(/\d{1,2})?)" "## IPv4 ADDRESS {} ##"
 
 # IPv6 address - simple for now
 "ipv6 address ([0-9A-Z:]*)" "## IPv6 ADDRESS {} ##"
@@ -23,10 +23,10 @@
 "description (.*)" "## Description Removed ##"
 
 # Passwords
-"password (.*)" "## Password Removed ##"
+"password ((\d )?\S*)" "## Password Removed ##"
 
 # Cryptographic key strings
-"key-string (\w*)" "## Key-string {} Removed ##"
+"key-string (\S*)" "## Key-string {} Removed ##"
 
 # Certificate contents
 "^\s*(([0-9A-F]{8} ){0,7}[0-9A-F]+$)" "## Certificate Removed ##"
